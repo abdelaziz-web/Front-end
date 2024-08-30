@@ -1,0 +1,72 @@
+<div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-8">
+        <div class="add p-3">
+          <h2 class="mb-3">Acquerir/Merchant Parameters :</h2>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation mx-auto" style="max-width: 600px;" novalidate>
+            <div class="row g-2">
+              <div class="col-md-4">
+                <label for="merchantType" class="form-label">Merch type (MCC) (18)</label>
+                <input type="text" class="form-control" id="merchantType" formControlName="merchantType">
+              </div>
+              <div class="col-md-4">
+                <label for="acquirerCountryCode" class="form-label">Acquirer ctry co (MCC) (19)</label>
+                <input type="text" class="form-control" id="acquirerCountryCode" formControlName="acquirerCountryCode">
+              </div>
+              <div class="col-md-4">
+                <label for="acquirerInstIdCode" class="form-label">Acq Inst id code (32)</label>
+                <input type="text" class="form-control" id="acquirerInstIdCode" formControlName="acquirerInstIdCode">
+              </div>
+            </div>
+            
+            <div class="row g-2 mt-2">
+              <div class="col-md-4">
+                <label for="forwardInstIdCode" class="form-label">Forward Inst id code (33)</label>
+                <input type="text" class="form-control" id="forwardInstIdCode" formControlName="forwardInstIdCode">
+              </div>
+              <div class="col-md-4">
+                <label for="cardAcceptorId" class="form-label">Card accep id (41)</label>
+                <input type="text" class="form-control" id="cardAcceptorId" formControlName="cardAcceptorId">
+              </div>
+              <div class="col-md-4">
+                <label for="cardAcceptorIdCode" class="form-label">Card acceptor id code (42)</label>
+                <input type="text" class="form-control" id="cardAcceptorIdCode" formControlName="cardAcceptorIdCode">
+              </div>
+            </div>
+  
+            <div class="row g-2 mt-2">
+              <div class="col-md-6">
+                <label for="cardAcceptorNameLocation" class="form-label">Card accep name/location (43)</label>
+                <input type="text" class="form-control" id="cardAcceptorNameLocation" formControlName="cardAcceptorNameLocation">
+              </div>
+
+              <div class="col-md-6">
+                <!--  <label for="field56" class="form-label">(56)</label>
+                <input type="text" class="form-control" id="field56" formControlName="field56" disabled> -->      
+              </div>
+            </div>
+            
+            <div class="row g-2 mt-2">
+              <div class="col-md-4">
+                <label for="additionalPOSInfo" class="form-label">Additionnal POS Info (60)</label>
+                <input type="text" class="form-control" id="additionalPOSInfo" formControlName="additionalPOSInfo">
+              </div>
+              <div class="col-md-4">
+                <label for="customPayService" class="form-label">Custom pay Ser (62)</label>
+                <input type="datetime-local" class="form-control" id="customPayService" formControlName="customPayService" readonly>
+              </div>
+              <div class="col-md-4">
+                <label for="vipPrivateUse" class="form-label">V.I.P Private use (63)</label>
+                <input type="text" class="form-control" id="vipPrivateUse" formControlName="vipPrivateUse">
+              </div>
+            </div>
+  
+            <div class="mt-3">
+              <button class="btn btn-primary btn-sm" type="submit" [disabled]="form.invalid">Submit Acquerir/Merchant data</button>
+              <button class="btn btn-secondary btn-sm ms-2" type="button" (click)="fillWithSampleData()">Fill with Sample Data</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,28 @@
+
+
+
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+       <div class="col-md-8 col-lg-6 text-center add">
+           <h2 class="mb-4">Message Type Indicator</h2>
+       
+           {{ getFormValueString() }}
+        <form class="needs-validation mx-auto" style="max-width: 300px;"  [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <h4>MTI Value:</h4>
+            <select class="form-select" aria-label="Default select example" name="mtiValue" formControlName="selectedOption" required>
+                <option value="" selected disabled>Select an option</option>
+                <option *ngFor="let option of options" [value]="option.value">
+                    {{ option.value }}
+                  </option>
+            </select>
+           </div>
+          
+          <div class="mt-4">
+            <button class="btn btn-primary" type="submit" >Submit</button>
+          </div>
+        </form>
+
+    </div>
+    </div>
+ </div>    

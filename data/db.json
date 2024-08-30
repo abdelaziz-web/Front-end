@@ -1,0 +1,55 @@
+{
+  "mti": [
+    {
+      "id": "c6b1",
+      "selectedOption": "0100"
+    },
+    {
+      "id": "b144",
+      "selectedOption": "0100"
+    }
+  ],
+  "cards": [
+    {
+      "id": "b348",
+      "pan": "1234567890123456",
+      "cardExpiration": "12/25",
+      "cardSequence": 123,
+      "track2": "1234567890123456=25121234567890123456",
+      "emvTagData": "9F260828BD080FB4279F10120110A04003220000000000000000FF9F3704F516B0B2"
+    }
+  ],
+  "transac": [
+    {
+      "id": "8300",
+      "processingCode": "123456",
+      "transactionAmount": "1000",
+      "billingAmount": "1000",
+      "transmissionDateTime": "2024-08-29T12:37",
+      "billingConversionRate": "1.25",
+      "systemTraceAuditNumber": "987654",
+      "posEntryMode": "0012",
+      "posConditionCode": "00",
+      "retrievalReferenceCode": "ABC123456789",
+      "transactionCurrencyCode": "840",
+      "billingCurrencyCode": "978",
+      "transactionDescription": "Purchase of goods at XYZ Store"
+    }
+  ],
+  "Acq": [
+    {
+      "id": "10d7",
+      "merchantType": "5411",
+      "acquirerCountryCode": "840",
+      "acquirerInstIdCode": "12345678901",
+      "forwardInstIdCode": "98765432109",
+      "cardAcceptorId": "TERM123456",
+      "cardAcceptorIdCode": "MERCH987654321",
+      "cardAcceptorNameLocation": "ACME Store 123 Main St Anytown US",
+      "field56": "",
+      "additionalPOSInfo": "123456789012",
+      "customPayService": "2024-08-29T12:37",
+      "vipPrivateUse": "VIP1234567890"
+    }
+  ]
+}

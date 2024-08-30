@@ -1,0 +1,121 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+      <div class="add p-3">
+        <h2 class="mb-3">Transaction Parameters :</h2>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation mx-auto" style="max-width: 600px;" novalidate>
+          <div class="row g-2">
+            <div class="col-md-4">
+              <label for="processingCode" class="form-label">Processing Code (03) 6n</label>
+              <input type="text" class="form-control" id="processingCode" formControlName="processingCode">
+              <div *ngIf="form.get('processingCode')?.invalid && form.get('processingCode')?.touched" class="invalid-feedback d-block">
+                Please enter a valid 6-digit processing code.
+              </div>
+            </div>
+            
+            <div class="col-md-8">
+              <label for="transactionAmount" class="form-label">Transaction Amount (04) 12n</label>
+              <input type="number" class="form-control" id="transactionAmount" formControlName="transactionAmount">
+              <div *ngIf="form.get('transactionAmount')?.invalid && form.get('transactionAmount')?.touched" class="invalid-feedback d-block">
+                Please enter a valid transaction amount (up to 12 digits).
+              </div>
+            </div>
+          </div>
+          
+          <div class="row g-2 mt-2">
+            <div class="col-md-4">
+              <label for="billingAmount" class="form-label">Billing Amount (06) 12n</label>
+              <input type="number" class="form-control" id="billingAmount" formControlName="billingAmount">
+              <div *ngIf="form.get('billingAmount')?.invalid && form.get('billingAmount')?.touched" class="invalid-feedback d-block">
+                Please enter a valid billing amount (up to 12 digits).
+              </div>
+            </div>
+            
+            <div class="col-md-4">
+              <label for="transmissionDateTime" class="form-label">Trans D and T (07) 10n</label>
+              <input type="text" class="form-control" id="transmissionDateTime" formControlName="transmissionDateTime" readonly>
+            </div>
+
+            <div class="col-md-4">
+              <label for="billingConversionRate" class="form-label">Bill Conver Rate (10) 8n</label>
+              <input type="number" step="0.01" class="form-control" id="billingConversionRate" formControlName="billingConversionRate">
+              <div *ngIf="form.get('billingConversionRate')?.invalid && form.get('billingConversionRate')?.touched" class="invalid-feedback d-block">
+                Please enter a valid billing conversion rate (up to 8 digits, 2 decimal places).
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-2 mt-2">
+            <div class="col-md-6">
+              <label for="systemTraceAuditNumber" class="form-label">STAN (11) 6n</label>
+              <input type="text" class="form-control" id="systemTraceAuditNumber" formControlName="systemTraceAuditNumber">
+              <div *ngIf="form.get('systemTraceAuditNumber')?.invalid && form.get('systemTraceAuditNumber')?.touched" class="invalid-feedback d-block">
+                Please enter a valid 6-digit STAN.
+              </div>
+            </div>
+            
+            <div class="col-md-3">
+              <label for="posEntryMode" class="form-label">POS E.M (22)4n</label>
+              <input type="text" class="form-control" id="posEntryMode" formControlName="posEntryMode">
+              <div *ngIf="form.get('posEntryMode')?.invalid && form.get('posEntryMode')?.touched" class="invalid-feedback d-block">
+                Please enter a valid 4-digit POS entry mode.
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="posConditionCode" class="form-label">POS C.C (25)2n</label>
+              <input type="text" class="form-control" id="posConditionCode" formControlName="posConditionCode">
+              <div *ngIf="form.get('posConditionCode')?.invalid && form.get('posConditionCode')?.touched" class="invalid-feedback d-block">
+                Please enter a valid 2-digit POS condition code.
+              </div>
+            </div>
+          </div>
+          
+          <div class="row g-2 mt-2">
+            <div class="col-md-6">
+              <label for="retrievalReferenceCode" class="form-label">Retrieval Reference Code (37) 12an</label>
+              <input type="text" class="form-control" id="retrievalReferenceCode" formControlName="retrievalReferenceCode">
+              <div *ngIf="form.get('retrievalReferenceCode')?.invalid && form.get('retrievalReferenceCode')?.touched" class="invalid-feedback d-block">
+                Please enter a valid 12-character alphanumeric retrieval reference code.
+              </div>
+            </div>
+            
+            <div class="col-md-3">
+              <label for="transactionCurrencyCode" class="form-label">Transa Curr C (49)3n</label>
+              <input type="text" class="form-control" id="transactionCurrencyCode" formControlName="transactionCurrencyCode">
+              <div *ngIf="form.get('transactionCurrencyCode')?.invalid && form.get('transactionCurrencyCode')?.touched" class="invalid-feedback d-block">
+                Please enter a valid 3-digit transaction currency code.
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="billingCurrencyCode" class="form-label">Billing Curr C (51)3n</label>
+              <input type="text" class="form-control" id="billingCurrencyCode" formControlName="billingCurrencyCode">
+              <div *ngIf="form.get('billingCurrencyCode')?.invalid && form.get('billingCurrencyCode')?.touched" class="invalid-feedback d-block">
+                Please enter a valid 3-digit billing currency code.
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-2 mt-2">
+            <div class="col-md-12">
+              <label for="transactionDescription" class="form-label">Transaction Description & Transaction-Specific (104) 255 bytes</label>
+              <input type="text" class="form-control" id="transactionDescription" formControlName="transactionDescription" readonly>
+              <div *ngIf="form.get('transactionDescription')?.invalid && form.get('transactionDescription')?.touched" class="invalid-feedback d-block">
+                Please enter a valid transaction description (max 255 characters).
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-3">
+            <button class="btn btn-primary btn-sm" type="submit" [disabled]="form.invalid">Submit Transaction data</button>
+
+
+            <button class="btn btn-secondary btn-sm ms-2" type="button" (click)="fillWithSampleData()">Fill with Sample Data</button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
