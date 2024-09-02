@@ -1,0 +1,67 @@
+<div class="container">
+  <h1>ISO Message Display</h1>
+  <div class="taille"></div>
+  <div class="message-container">
+    <div class="message">
+      <h2>Request</h2>
+      <div *ngIf="responseall">
+        <div *ngFor="let section of getObjectEntries(responseall)">
+          <ng-container *ngIf="section[0] !== 'response'">
+            <h3>{{ section[0] }}</h3>
+            <div *ngFor="let item of section[1]">
+              <div *ngFor="let entry of getObjectEntries(item)">
+                <strong>{{ entry[0] }}:</strong> {{ entry[1] | json }}
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="message">
+      <h2>Response</h2>
+      <div *ngIf="responseall">
+        <div *ngFor="let section of getObjectEntries(responseall)">
+          <ng-container *ngIf="section[0] === 'response'">
+            <div *ngFor="let item of section[1]">
+              <div *ngFor="let entry of getObjectEntries(item)">
+                <strong>{{ entry[0] }}:</strong> {{ entry[1] | json }}
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center mt-4">
+    <button (click)="toggleHexFormat()" class="btn btn-primary btn-lg button-container">
+      {{ showHexFormat ? 'Show Normal Format' : 'Show Hex Format' }}
+    </button>
+  </div>
+
+  <div *ngIf="showHexFormat" class="row justify-content-center mb-4 hex-format-container">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title text-center">Request</h2>
+          <h4>Hex Format</h4>
+          <pre>{{ hexreq }}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="showHexFormat" class="row justify-content-center mb-4 hex-format-container">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title text-center">Response</h2>
+          <h4>Hex Format</h4>
+          <pre>{{ hexres }}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

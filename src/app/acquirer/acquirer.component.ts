@@ -12,7 +12,10 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './acquirer.component.css'
 })
 export class AcquirerComponent {
+  @Output() value = new EventEmitter<number>();
   form!: FormGroup;
+
+  serverResponse: any;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {}
 
@@ -40,6 +43,9 @@ export class AcquirerComponent {
   }
 
 
+  sendDataToApp() {
+    this.value.emit(4);
+  }
 
 
   onSubmit() {
@@ -60,8 +66,9 @@ export class AcquirerComponent {
 
      this.http.post('http://localhost:8000/Acq', requestData).subscribe({
        next: (response: any) => {
-         console.log('Data successfully sent:', response);
-      
+         console.log('Response from the server:', response);
+        this.serverResponse = response;
+        this.sendDataToApp();
        },
        error: (error: any) => {
          console.error('Error sending data:', error);
@@ -81,9 +88,6 @@ export class AcquirerComponent {
       });
     }
   }
-
-
-
 
 
   fillWithSampleData() {

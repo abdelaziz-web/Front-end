@@ -7,11 +7,12 @@ import { CardsComponent } from './cards/cards.component';
 import { AcquirerComponent } from './acquirer/acquirer.component';
 import { TransaComponent } from './transa/transa.component';
 import { HttpClient } from '@angular/common/http';
+import { IsoMessageDisplayComponent } from "./iso-message-display/iso-message-display.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, HeaderComponent, MtiComponent, CommonModule,CardsComponent,AcquirerComponent,TransaComponent],
+  imports: [RouterModule, HeaderComponent, MtiComponent, CommonModule, CardsComponent, AcquirerComponent, TransaComponent, IsoMessageDisplayComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -29,8 +30,5 @@ constructor(private http:HttpClient){}
     console.log('Data received from child:', data);
     this.showForm = data;
   }
-
-
-
   
 }

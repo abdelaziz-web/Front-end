@@ -1,0 +1,84 @@
+.container {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .message-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .message {
+    width: 48%;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px; 
+  }
+  
+
+  .iso-title {
+    margin-bottom: 30px;  /* Adds space below the title */
+  }
+  
+  .section-title {
+    margin-top: 20px;  /* Adds space above each section title (mti, cards, etc.) */
+    margin-bottom: 10px;  /* Adds a little space below the section title */
+  }
+  
+  .message-container {
+    margin-top: 20px;  /* Adds space between the title and the message container */
+  }
+  
+
+  @media (max-width: 600px) {
+    .message-container {
+      flex-direction: column;
+    }
+    .message {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+
+  
+  button:hover {
+    
+    background-color: #525d9c;
+  }
+
+  .btn-primary {
+    background-color: #4CAF50;
+    border-color: #ebebef;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover, .btn-primary:focus {
+    background-color: #f70f13;
+    border-color: #4645a0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  
+  .button-container {
+    margin-bottom: 2rem; /* Adjust this value as needed */
+  }
+  
+  .hex-format-container {
+    margin-top: 2rem; /* Adjust this value as needed */
+  }
+
+  .hex-format-container:first-of-type {
+    margin-top: 2rem;
+  }
+
+  .btn-lg {
+    padding: 12px 24px;
+    font-size: 18px;
+  }
