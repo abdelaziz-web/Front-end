@@ -33,7 +33,7 @@ export class TransaComponent implements OnInit {
       retrievalReferenceCode: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]{12}$/)]],
       transactionCurrencyCode: ['', [Validators.required, Validators.pattern(/^\d{3}$/)]],
       billingCurrencyCode: ['', [Validators.required, Validators.pattern(/^\d{3}$/)]],
-      // transactionDescription: ['', [Validators.required, Validators.maxLength(255)]]
+    
     });
   }
 
@@ -53,7 +53,7 @@ export class TransaComponent implements OnInit {
       };
 
       console.log('Data successfully sent:', transac);
-      this.http.post('http://localhost:8000/transac', requestData).subscribe({
+      this.http.post('http://localhost:8000/auth/transac', requestData).subscribe({
         next: (response: any) => {
           console.log('Data successfully sent:', response);
           this.sendDataToApp();

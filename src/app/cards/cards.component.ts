@@ -31,9 +31,12 @@ export class CardsComponent {
     });
   }
 
+
+
   sendDataToapp() {
     this.value.emit(2);
   }
+
 
   onSubmit() {
   
@@ -54,7 +57,7 @@ export class CardsComponent {
 
        console.log('Data successfully sent:', this.carddata);
 
-      this.http.post('http://localhost:8000/cards', requestData).subscribe({
+      this.http.post('http://localhost:8000/auth/cards', requestData).subscribe({
         next: (response: any) => {
           console.log('Data successfully sent:', response);
           this.sendDataToapp();

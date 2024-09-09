@@ -10,4 +10,12 @@
 
 <app-acquirer *ngIf="showForm == 3"  (value)="handleChildData($event)" ></app-acquirer>
 
-<app-iso-message-display *ngIf="showForm == 4"  (value)="handleChildData($event)" ></app-iso-message-display>
+<app-iso-message-display 
+  *ngIf="showForm == 4" 
+  (value)="handleChildData($event)"
+  (dataEmitter)="receivingdata($event)"
+></app-iso-message-display>
+
+<router-outlet ></router-outlet>
+
+

@@ -3,11 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { CardsComponent } from './cards/cards.component';
 import { AcquirerComponent } from './acquirer/acquirer.component';
 import { TransaComponent } from './transa/transa.component';
+import { Can0400Component } from './can0400/can0400.component';
 
 export const routes: Routes = [
-  { path: 'cards', component: CardsComponent },
-  { path: 'acquirer', component: AcquirerComponent },
-  { path: 'transa', component: TransaComponent },
+  { path: 'cancellation', component: Can0400Component },
 ];
 
 @NgModule({

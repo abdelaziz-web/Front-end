@@ -1,0 +1,16 @@
+.hex-data {
+    white-space: pre-wrap;
+    word-break: break-all;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin-bottom: 0;
+    font-family: monospace;
+    font-size: 0.875rem;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  .card-body + .card-body {
+    border-top: 1px solid #e9ecef;
+  }

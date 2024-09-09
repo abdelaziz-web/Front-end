@@ -64,7 +64,7 @@ export class AcquirerComponent {
        
       console.log('Data successfully sent:', acq);
 
-     this.http.post('http://localhost:8000/Acq', requestData).subscribe({
+     this.http.post('http://localhost:8000/auth/Acq', requestData).subscribe({
        next: (response: any) => {
          console.log('Response from the server:', response);
         this.serverResponse = response;

@@ -19,6 +19,8 @@ interface Option {
 export class MtiComponent implements OnInit {
   form!: FormGroup;
   options!: Option[];
+
+
   @Output() value = new EventEmitter<number>();
 
   constructor(private fb: FormBuilder, private http: HttpClient) {}
@@ -33,7 +35,6 @@ export class MtiComponent implements OnInit {
       { value: '0400', label: '0400' }
     ];
 
-
   }
 
   onSubmit() {
@@ -44,14 +45,13 @@ export class MtiComponent implements OnInit {
       const requestData = {
         mti: [
           {
-       
             selectedOption: formData.selectedOption
           }
         ]
       };
 
       
-      this.http.post('http://localhost:8000/mti', requestData).subscribe({
+      this.http.post('http://localhost:8000/auth/mti', requestData).subscribe({
         next: (response: any) => {
           console.log('Data successfully sent:', response);
           this.sendDataToapp();
@@ -78,8 +78,8 @@ export class MtiComponent implements OnInit {
 
   sendDataToapp() {
     this.value.emit(1);
-  }
-
+  } 
+  
  
 
 } 

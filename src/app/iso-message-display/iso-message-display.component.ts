@@ -1,12 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 interface IsoMessage {
   mti: any[];
   cards: any[];
   acq: any[];
   transac: any[];
+  response?: any[]; 
 }
 
 @Component({
@@ -17,15 +20,24 @@ interface IsoMessage {
   styleUrls: ['./iso-message-display.component.css']
 })
 export class IsoMessageDisplayComponent implements OnInit {
-  
+
   @Input() request: IsoMessage | undefined;
-  responseall:  any;
+  responseall: IsoMessage | undefined;
+  
+ 
   response : any ;
   showHexFormat: boolean = false;
   hexreq !: String  ;
   hexres !: String ;
+  @Output() value = new EventEmitter<number>();
+
+  @Output() dataEmitter = new EventEmitter<any>();
 
   constructor(private http: HttpClient) {}
+
+  sendDataToapp() {
+    this.value.emit(400);
+  }
 
   ngOnInit() {
     this.fetchCombinedResponse();
@@ -33,11 +45,18 @@ export class IsoMessageDisplayComponent implements OnInit {
   }
 
   fetchCombinedResponse() {
-    const url = 'http://localhost:8000/combined-response';
+    
+    const url = 'http://localhost:8000/auth/combined-response';
     this.http.get<IsoMessage>(url).subscribe(
       (response) => {
         this.responseall = response;
         console.log('Response received:', this.responseall);
+
+        // Create a  copy of the response
+       const responseCopy = JSON.parse(JSON.stringify(response));
+
+        this.dataEmitter.emit(responseCopy);
+
       },
       (error) => {
         console.error('Error:', error);
@@ -52,19 +71,13 @@ export class IsoMessageDisplayComponent implements OnInit {
  
   toggleHexFormat() {
     this.showHexFormat = !this.showHexFormat;
-
-   
-
       this.getHexFormat() ;
-
-    
-
   }
 
   getHexFormat() {
 
   
-    const url = 'http://localhost:8000/hex';
+    const url = 'http://localhost:8000/auth/hex';
      this.http.get<String>(url).subscribe(
       (response) => {
         this.response = response;
@@ -79,10 +92,14 @@ export class IsoMessageDisplayComponent implements OnInit {
     );
 
     this.hexreq = this.response.hexreq ;
-    this.hexres = this.response.hexres  ;
+    this.hexres = this.response.hexres ;
 
-   
   }
 
+  cancellation() {
+
+   this.sendDataToapp() ;
+  
+  }
 
 }

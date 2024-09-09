@@ -1,0 +1,196 @@
+<div *ngIf="displayForm == 0" class="container mt-5">
+    <h2 class="mb-4">ISO 8583 0400 Message Form</h2>
+    <form [formGroup]="iso8583Form!" (ngSubmit)="onSubmit()">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="Id" class="form-label">ID</label>
+          <input type="text" class="form-control" id="Id" formControlName="Id" >
+        </div>
+        <div class="col-md-6">
+          <label for="mti" class="form-label">MTI</label>
+          <input type="text" class="form-control" id="mti" formControlName="mti" readonly>
+        </div>
+        <div class="col-md-6">
+          <label for="pan_2" class="form-label">PAN (2)</label>
+          <input type="text" class="form-control" id="pan_2" formControlName="pan_2">
+        </div>
+        <div class="col-md-6">
+          <label for="processingCode_3" class="form-label">Processing Code (3)</label>
+          <input type="text" class="form-control" id="processingCode_3" formControlName="processingCode_3">
+        </div>
+        <div class="col-md-6">
+          <label for="transactionAmount_4" class="form-label">Transaction Amount (4)</label>
+          <input type="text" class="form-control" id="transactionAmount_4" formControlName="transactionAmount_4">
+        </div>
+        <div class="col-md-6">
+          <label for="billingAmount_6" class="form-label">Billing Amount (6)</label>
+          <input type="text" class="form-control" id="billingAmount_6" formControlName="billingAmount_6">
+        </div>
+        <div class="col-md-6">
+          <label for="transmissionDateTime_7" class="form-label">Transmission Date Time (7)</label>
+          <input type="text" class="form-control" id="transmissionDateTime_7" formControlName="transmissionDateTime_7">
+        </div>
+        <div class="col-md-6">
+          <label for="billingConversionRate_10" class="form-label">Billing Conversion Rate (10)</label>
+          <input type="text" class="form-control" id="billingConversionRate_10" formControlName="billingConversionRate_10">
+        </div>
+        <div class="col-md-6">
+          <label for="systemTraceAuditNumber_11" class="form-label">System Trace Audit Number (11)</label>
+          <input type="text" class="form-control" id="systemTraceAuditNumber_11" formControlName="systemTraceAuditNumber_11">
+        </div>
+        <div class="col-md-6">
+          <label for="cardExpiration_14" class="form-label">Card Expiration (14)</label>
+          <input type="text" class="form-control" id="cardExpiration_14" formControlName="cardExpiration_14">
+        </div>
+        <div class="col-md-6">
+          <label for="merchantType_18" class="form-label">Merchant Type (18)</label>
+          <input type="text" class="form-control" id="merchantType_18" formControlName="merchantType_18">
+        </div>
+        <div class="col-md-6">
+          <label for="acquirerCountryCode_19" class="form-label">Acquirer Country Code (19)</label>
+          <input type="text" class="form-control" id="acquirerCountryCode_19" formControlName="acquirerCountryCode_19">
+        </div>
+        <div class="col-md-6">
+          <label for="posEntryMode_22" class="form-label">POS Entry Mode (22)</label>
+          <input type="text" class="form-control" id="posEntryMode_22" formControlName="posEntryMode_22">
+        </div>
+        <div class="col-md-6">
+          <label for="posConditionCode_25" class="form-label">POS Condition Code (25)</label>
+          <input type="text" class="form-control" id="posConditionCode_25" formControlName="posConditionCode_25">
+        </div>
+        <div class="col-md-6">
+          <label for="acquirerInstIdCode_32" class="form-label">Acquirer Institution ID Code (32)</label>
+          <input type="text" class="form-control" id="acquirerInstIdCode_32" formControlName="acquirerInstIdCode_32">
+        </div>
+        <div class="col-md-6">
+          <label for="retrievalReferenceCode_37" class="form-label">Retrieval Reference Code (37)</label>
+          <input type="text" class="form-control" id="retrievalReferenceCode_37" formControlName="retrievalReferenceCode_37">
+        </div>
+        <div class="col-md-6">
+          <label for="Authorization_Id_Resp_38" class="form-label">Authorization ID Response (38)</label>
+          <input type="text" class="form-control" id="Authorization_Id_Resp_38" formControlName="Authorization_Id_Resp_38">
+        </div>
+        <div class="col-md-6">
+          <label for="cardAcceptorId_41" class="form-label">Card Acceptor ID (41)</label>
+          <input type="text" class="form-control" id="cardAcceptorId_41" formControlName="cardAcceptorId_41">
+        </div>
+        <div class="col-md-6">
+          <label for="cardAcceptorIdCode_42" class="form-label">Card Acceptor ID Code (42)</label>
+          <input type="text" class="form-control" id="cardAcceptorIdCode_42" formControlName="cardAcceptorIdCode_42">
+        </div>
+        <div class="col-md-6">
+          <label for="cardAcceptorNameLocation_43" class="form-label">Card Acceptor Name/Location (43)</label>
+          <input type="text" class="form-control" id="cardAcceptorNameLocation_43" formControlName="cardAcceptorNameLocation_43">
+        </div>
+        <div class="col-md-6">
+          <label for="transactionCurrencyCode_49" class="form-label">Transaction Currency Code (49)</label>
+          <input type="text" class="form-control" id="transactionCurrencyCode_49" formControlName="transactionCurrencyCode_49">
+        </div>
+        <div class="col-md-6">
+          <label for="billingCurrencyCode_51" class="form-label">Billing Currency Code (51)</label>
+          <input type="text" class="form-control" id="billingCurrencyCode_51" formControlName="billingCurrencyCode_51">
+        </div>
+      </div>
+      <div class="mt-4">
+       
+  <div class="form-buttons">
+    <button 
+      type="submit" 
+      [disabled]="!iso8583Form.valid"
+      class="btn btn-primary"
+    >
+      Submit
+    </button>
+    <button 
+      type="button" 
+      (click)="onReset()"
+      class="btn btn-secondary"
+    >
+      Reset
+    </button>
+  </div>
+      </div>
+    </form>
+  </div>
+
+
+  <div *ngIf="displayForm == 1" class="container-fluid mt-5">
+    <h1 class="text-center mb-4">ISO Message Display</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">Request</h2>
+          </div>
+          <div class="card-body">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 40%;">Field</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let entry of getObjectEntries(canceldata?.request)">
+                  <th scope="row">{{ entry[0] }}</th>
+                  <td>{{ entry[1] }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-success text-white">
+            <h2 class="mb-0">Response</h2>
+          </div>
+          <div class="card-body">
+            <div *ngIf="canceldata?.response?.message" class="alert alert-success">
+              {{ canceldata.response.message }}
+            </div>
+            <table class="table table-striped table-hover" *ngIf="canceldata?.response && !canceldata.response.message">
+              <tbody>
+                <tr *ngFor="let entry of getObjectEntries(canceldata.response)">
+                  <th scope="row">{{ entry[0] }}</th>
+                  <td>{{ entry[1] }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4"></div>
+    <div class="col-12 text-center">
+      <button class="btn btn-info" (click)="submitCancellation()">View Hex Format</button>
+    </div>
+  
+  
+ 
+
+    <div class="container" *ngIf="hexFormatData0">
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-info text-white">
+              <h2 class="mb-0">Hex Format</h2>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Reversal Request</h5>
+              <pre class="hex-data">{{ hexFormatData0 }}</pre>
+            </div>
+            <div class="card-body border-top">
+              <h5 class="card-title">Reversal Response</h5>
+              <pre class="hex-data">{{ hexFormatData1 }}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+ 

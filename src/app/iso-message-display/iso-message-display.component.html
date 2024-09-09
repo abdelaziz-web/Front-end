@@ -37,6 +37,13 @@
       {{ showHexFormat ? 'Show Normal Format' : 'Show Hex Format' }}
     </button>
   </div>
+    <div (click)="cancellation()" class="d-flex justify-content-center mt-4" >
+    <button type="button" class="btn btn-danger btn-lg button-container">
+      <i class="bi bi-x-circle me-2"></i>Cancel Authorization (0400)
+    </button>
+   </div>
+
+
 
   <div *ngIf="showHexFormat" class="row justify-content-center mb-4 hex-format-container">
     <div class="col-md-12">
@@ -62,6 +69,8 @@
       </div>
     </div>
   </div>
+
+ 
 
 
 </div>
